@@ -7,6 +7,7 @@ import {
 import CatListingPage from "./page/CatListingPage"
 import AddCatPage from "./page/AddCatPage"
 import EditCatPage from "./page/EditCatPage"
+import DeleteCatPage from "./page/DeleteCatPage"
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
             <Route path="/" element={<CatListingPage />} />
             <Route path="/add" element={<AddCatPage />} />
             <Route path="/edit/:catId" element={<EditCatPage />} />
+            <Route path="/delete/:catId" element={<DeleteCatPage />} />
           </Routes>
         </Router>
       </CatContextData>

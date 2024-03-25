@@ -21,6 +21,11 @@ export default function CatListing() {
                         navigate("/edit/" + c.id);
                     }}
                 >Edit</button>
+                <button className="btn btn-danger mt-3 ms-3"
+                    onClick={()=>{
+                        navigate("/delete/" + c.id);
+                    }}
+                >Delete</button>
             </li>)
         }
     </ul>

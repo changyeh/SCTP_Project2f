@@ -46,6 +46,15 @@ export default function CatContextData(props) {
             const modified  =[ ...left, newCat, ...right];
    
             setCats(modified);
+        },
+        async deleteCatById(catId) {
+            const index = cats.findIndex( c => c.id === parseInt(catId));
+            const left = [...cats.slice(0, index)];
+            const right = [...cats.slice(index+1)];
+            const modified  =[ ...left, ...right];
+   
+            setCats(modified);
+            const response = await axios.delete(BASE_API_URL + "/cats/" + catId);
         }
     }
 
