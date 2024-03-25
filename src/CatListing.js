@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function CatListing() {
     const context = useContext(CatContext);
     const navigate = useNavigate();
-    console.log(context);
+
     return <ul className="list-group">
         {
             context.getCats().map( c => <li key={c.id} className="list-group-item">

@@ -18,7 +18,6 @@ export default function CatContextData(props) {
     const context = {
         getCats:() => {
             // todo: set a timer like every 10 minutes fetch all new cats
-            console.log(cats);
             return cats
         },
         async addCat(newCat) {
@@ -31,8 +30,7 @@ export default function CatContextData(props) {
             setCats([...cats, newCat]);
         },
         getCatById(catId) {
-            console.log(cats);
-            return cats.find(c => c.id === catId);
+            return cats.find(c => c.id === parseInt(catId));
         },
         async updateCatById(catId, newCat) {
             const response = await axios.put(BASE_API_URL + "/cats/" + catId,{
@@ -40,9 +38,9 @@ export default function CatContextData(props) {
                 cost: parseInt(newCat.cost)
             });
 
-            newCat.id = catId
+            newCat.id = parseInt(catId);
     
-            const index = cats.findIndex( c => c.id === catId);
+            const index = cats.findIndex( c => c.id === parseInt(catId));
             const left = [...cats.slice(0, index)];
             const right = [...cats.slice(index+1)];
             const modified  =[ ...left, newCat, ...right];
